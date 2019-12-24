@@ -17,7 +17,7 @@ public:
 	}
 
 	template <typename SLOT>
-	void connect(SLOT funcSlot, bool keepsignal) {
+	void connect(SLOT funcSlot, bool keepsignal=false) {
 		if (flag) {
 			funcSlot();
 			flag = keepsignal;
@@ -25,7 +25,7 @@ public:
 	}
 
 	template <typename OBJECT, typename SLOT>
-	void connect(OBJECT *obj, SLOT funcSlot, bool keepsignal) {
+	void connect(OBJECT *obj, SLOT funcSlot, bool keepsignal=false) {
 		if (flag) {
 			(obj->*funcSlot)();
 			flag = keepsignal;
@@ -51,7 +51,7 @@ public:
 	}
 
 	template <typename SLOT>
-	void connect(SLOT funcSlot, bool keepsignal) {
+	void connect(SLOT funcSlot, bool keepsignal=false) {
 		if (flag) {
 			funcSlot(_param1);
 			flag = keepsignal;
@@ -59,7 +59,7 @@ public:
 	}
 
 	template <typename OBJECT, typename SLOT>
-	void connect(OBJECT *obj, SLOT funcSlot, bool keepsignal) {
+	void connect(OBJECT *obj, SLOT funcSlot, bool keepsignal=false) {
 		if (flag) {
 			(obj->*funcSlot)(_param1);
 			flag = keepsignal;
@@ -87,7 +87,7 @@ public:
 	}
 
 	template <typename SLOT>
-	void connect(SLOT funcSlot, bool keepsignal) {
+	void connect(SLOT funcSlot, bool keepsignal=false) {
 		if (flag) {
 			funcSlot(_param1, _param2);
 			flag = keepsignal;
@@ -95,7 +95,7 @@ public:
 	}
 
 	template <typename OBJECT, typename SLOT>
-	void connect(OBJECT *obj, SLOT funcSlot, bool keepsignal) {
+	void connect(OBJECT *obj, SLOT funcSlot, bool keepsignal=false) {
 		if (flag) {
 			(obj->*funcSlot)(_param1, _param2);
 			flag = keepsignal;
